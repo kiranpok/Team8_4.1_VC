@@ -8,13 +8,14 @@ public class PalindromeChecker {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+      
+        System.out.print("Please input your string: "); // Narration for user-friendliness
 
-        // Take user input
-        System.out.println("Enter a string to check for palindrome:");
         String input = scanner.nextLine();
 
         // Transform the input
         String transformed = transformInput(input);
+        System.out.println("\nYour input transformed to \"" + transformed + "\".");
 
         // Check if the transformed input is a palindrome
         boolean isPalindrome = checkPalindrome(transformed);
@@ -26,7 +27,7 @@ public class PalindromeChecker {
             System.out.println("The transformed input is not a palindrome.");
         }
     }
-
+  
     //Transforms the input by converting to lowercase and removing commas and exclamation marks.
 
     public static String transformInput(String input) {
@@ -39,16 +40,33 @@ public class PalindromeChecker {
      //Checks if a given string is a palindrome.
 
     public static boolean checkPalindrome(String input) {
+
         String reversed = reverseString(input);
-        return input.equals(reversed);
+        /*if (input.equals(reversed)) {
+
+            return true;
+        } else {
+            return false;
+        }*/
+
+        return (input.equals(reversed)); // Simplified original if-else code
+    }
+
+    public static String transformInput(String in) {
+        in = in.toLowerCase();
+        in = in.replace(",", "");
+        in = in.replace("!", "");
+        return in;
     }
 
     //Reverses a given string.
 
     public static String reverseString(String input) {
+
         StringBuilder reversed = new StringBuilder();
+
         for (int i = input.length() - 1; i >= 0; i--) {
-            reversed.append(input.charAt(i));
+            stringBuilder.append(input.charAt(i));
         }
         return reversed.toString();
     }
